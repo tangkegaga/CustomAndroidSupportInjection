@@ -2,6 +2,7 @@ package au.com.kaiwu.nestfragmentdagger.main.mainfragment
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 import javax.inject.Named
 
-class MainFragment : DaggerFragment() {
+class MainFragment : /*Dagger*/Fragment() {
 
     companion object {
         fun newInstance() = MainFragment()
