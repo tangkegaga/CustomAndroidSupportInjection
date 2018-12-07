@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import au.com.kaiwu.nestfragmentdagger.R
 import au.com.kaiwu.nestfragmentdagger.TestData
 import au.com.kaiwu.nestfragmentdagger.main.childfragment.ChildFragment
+import au.com.kaiwu.nestfragmentdagger.main.customview.CustomView
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
@@ -29,7 +30,14 @@ class MainFragment : DaggerFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        var rootView: ViewGroup = inflater.inflate(R.layout.main_fragment, container, false) as ViewGroup
+
+        context?.let {
+            var customView = CustomView(it,childFragmentManager)
+            rootView.addView(customView)
+        }
+
+        return rootView;
     }
 
 
@@ -37,7 +45,7 @@ class MainFragment : DaggerFragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
-
+/*
         button.setOnClickListener {
 
             childFragmentManager.beginTransaction()
@@ -45,7 +53,7 @@ class MainFragment : DaggerFragment() {
                     .add(R.id.child_container, ChildFragment.newInstance())
                     .commit()
 
-        }
+        }*/
     }
 
 }

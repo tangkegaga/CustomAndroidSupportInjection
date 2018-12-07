@@ -2,13 +2,14 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="au.com.kaiwu.nestfragmentdagger.main.mainfragment.MainFragment"
     tools:layout_editor_absoluteY="81dp">
 
     <FrameLayout
+        android:visibility="gone"
         android:id="@+id/child_container"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -18,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
@@ -30,6 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/child_container" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
