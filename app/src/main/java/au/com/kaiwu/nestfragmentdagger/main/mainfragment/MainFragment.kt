@@ -21,12 +21,6 @@ class MainFragment : DaggerFragment() {
     }
 
     private lateinit var viewModel: MainViewModel
-    @Inject
-    lateinit var testData: TestData/*singleton within life of app*/
-
-    @Inject
-    @field:Named("MainFragmentTestData")
-    lateinit var testDataMainFragment: TestData/*singleton within life of MainFragment*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

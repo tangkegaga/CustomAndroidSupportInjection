@@ -13,16 +13,6 @@ import javax.inject.Named
 
 class ChildFragment : DaggerFragment() {
 
-    @Inject
-    lateinit var testData: TestData/*singleton within life of app*/
-
-    @Inject
-    @field:Named("MainFragmentTestData")
-    lateinit var testDataMainFragment: TestData/*singleton within life of MainFragment*/
-
-    @Inject
-    @field:Named("ChildFragmentTestData")
-    lateinit var ChildFragmentTestData: TestData/*Singleton within life of ChildFragment*/
 
     companion object {
         fun newInstance() = ChildFragment()
