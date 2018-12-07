@@ -18,7 +18,7 @@ interface CustomViewDaggerComponent {
     interface Builder {
 
         @BindsInstance
-        fun sectionView(customView: CustomView): Builder
+        fun customView(customView: CustomView): Builder
 
         fun build(): CustomViewDaggerComponent
 

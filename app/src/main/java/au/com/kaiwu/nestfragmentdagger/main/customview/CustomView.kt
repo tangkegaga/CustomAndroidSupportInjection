@@ -19,6 +19,10 @@ class CustomView(context: Context, fragmentManager: FragmentManager) : FrameLayo
     @Inject
     internal lateinit var dispatchingFragmentInjector: DispatchingAndroidInjector<Fragment>
 
+
+    private lateinit var customViewDaggerComponent: CustomViewDaggerComponent
+
+
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
         return dispatchingFragmentInjector
     }
@@ -26,6 +30,15 @@ class CustomView(context: Context, fragmentManager: FragmentManager) : FrameLayo
 
     init {
         LayoutInflater.from(context).inflate(R.layout.custom_view, this, true)
+
+        /*
+        to make the following possible
+        @Inject
+        internal lateinit var dispatchingFragmentInjector: DispatchingAndroidInjector<Fragment>
+        * */
+        customViewDaggerComponent = DaggerCustomViewDaggerComponent.builder().customView(this).build()
+        customViewDaggerComponent.inject(this)
+
         fragmentManager.beginTransaction()
                 .replace(R.id.container, ChildFragment.newInstance())
                 .commit()
