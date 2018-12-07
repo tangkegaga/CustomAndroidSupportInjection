@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.custom_view.view.*
 
 class CustomView(context: Context, fragmentManager: FragmentManager) : FrameLayout(context) {
 
+
     init {
         LayoutInflater.from(context).inflate(R.layout.custom_view, this, true)
         fragmentManager.beginTransaction()
